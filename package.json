@@ -1,0 +1,11 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "jprodyx:zeelz/workflow.git",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.10.8",
+    "typescript": "^5.3.3"
+  }
+}
