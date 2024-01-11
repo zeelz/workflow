@@ -11,7 +11,7 @@ on:
   #   types: synchronize
 
   push:
-    branches: [main]
+    branches: [dev]
 
 jobs:
   build:
