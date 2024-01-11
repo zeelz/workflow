@@ -7,7 +7,7 @@ app.use(express.json())
 const PORT = 3366
 
 app.get("/", (req: Request, res: Response) => {
-    return res.status(200).send({"msg": "canada 2024"})
+    return res.status(200).send({"msg": "Canada 2024"})
 })
 
 app.listen(PORT, () => console.log(`Running at http://localhost:${PORT}`))
