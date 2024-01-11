@@ -1,4 +1,4 @@
-name: "Test Workflow"
+name: "Upload/Download Artifact"
 
 on:
   # pull_request:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
