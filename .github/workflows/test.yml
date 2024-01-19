@@ -2,11 +2,25 @@ name: "Test workflow"
 on:
   push:
     branches: dev
+  pull_request:
+    branches: dev
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: test-1
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: setup-node
+        uses: actions/setup-node@v3
+
+      - name: install deps & build
         run: |
-          echo "tested 🤪"
+          yarn install --include=dev
+          yarn build
+
+      - name: run test
+        run: |
+          yarn test:exit
