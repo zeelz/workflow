@@ -16,7 +16,10 @@ jobs:
       - name: setup-node
         uses: actions/setup-node@v3
 
-      - name: run test
+      - name: install deps
         run: |
           yarn install --include=dev
-          yarn test
+
+      - name: run test
+        run: |
+          yarn test:exit
