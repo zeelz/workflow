@@ -4,6 +4,8 @@ on:
     branches: dev
   pull_request:
     branches: dev
+permissions:
+  id-token: write
 
 jobs:
   test:
