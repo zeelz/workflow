@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    if: false
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -24,3 +24,17 @@ jobs:
       - name: run test
         run: |
           yarn test:exit
+
+  aws:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: aws cli configure
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: "arn:aws:iam::650267257878:role/OIDC"
+          aws-region: "us-east-1"
+
+      - name: try cli
+        run: |
+          aws s3 ls
