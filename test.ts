@@ -6,7 +6,6 @@ describe("Test suite", () => {
         const res = await request(app)
             .get("/test")
             
-        // console.log("Response object:", res.body);
         expect(res.statusCode).toEqual(200)
     })
 })
