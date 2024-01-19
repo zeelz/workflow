@@ -28,6 +28,7 @@ jobs:
           yarn test:exit
 
   aws:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
