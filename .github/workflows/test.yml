@@ -1,0 +1,43 @@
+name: "Test workflow"
+on:
+  push:
+    branches: dev
+  pull_request:
+    branches: dev
+permissions:
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: setup-node
+        uses: actions/setup-node@v3
+
+      - name: install deps & build
+        run: |
+          yarn install --include=dev
+          yarn build
+
+      - name: run test
+        run: |
+          yarn test:exit
+
+  aws:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: aws cli configure
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: "arn:aws:iam::650267257878:role/OIDC"
+          aws-region: "us-east-1"
+
+      - name: try cli
+        run: |
+          aws s3 ls
