@@ -11,11 +11,11 @@ on:
   #   types: synchronize
 
   push:
-    branches: [dev]
+    branches: [dev__DISABLED]
 
 jobs:
   build:
-    # if: github.event.pull_request.merged == true #commented
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
