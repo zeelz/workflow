@@ -22,7 +22,8 @@ jobs:
 
   jest:
     runs-on: ubuntu-latest
-    if: $STATUS
+    if: ${{ env.STATUS }}
+
     steps:
       - name: checkout
         uses: actions/checkout@v3
