@@ -7,7 +7,7 @@ permissions:
   id-token: write
 
 jobs:
-  test:
+  fake_test:
     if: false
     runs-on: ubuntu-latest
 
@@ -16,7 +16,7 @@ jobs:
         run: |
           echo "test passed" && exit 0
 
-  jest:
+  test:
     runs-on: ubuntu-latest
     if: true
 
