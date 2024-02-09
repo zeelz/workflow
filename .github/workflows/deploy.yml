@@ -21,5 +21,6 @@ jobs:
 
       - name: try cli
         run: |
-          echo "this is deploy job\n"
-          aws s3 ls
+          echo -e "this is deploy job\n"
+          sam 
+          # aws s3 ls
