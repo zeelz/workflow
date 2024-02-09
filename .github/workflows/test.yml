@@ -8,17 +8,7 @@ permissions:
 
 jobs:
   test:
-    if: false
     runs-on: ubuntu-latest
-
-    steps:
-      - name: pass test
-        run: |
-          echo "test passed" && exit 0
-
-  jest:
-    runs-on: ubuntu-latest
-    if: true
 
     steps:
       - name: checkout
@@ -34,5 +24,4 @@ jobs:
 
       - name: run test
         run: |
-          # cat non-existent-file
           yarn test:exit
