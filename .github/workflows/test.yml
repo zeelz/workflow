@@ -7,18 +7,8 @@ permissions:
   id-token: write
 
 jobs:
-  fake_test:
-    if: false
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: pass test
-        run: |
-          echo "test passed" && exit 0
-
   test:
     runs-on: ubuntu-latest
-    if: true
 
     steps:
       - name: checkout
