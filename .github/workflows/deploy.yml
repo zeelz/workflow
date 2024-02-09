@@ -1,0 +1,25 @@
+name: "Test workflow"
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  id-token: write
+
+jobs:
+  aws:
+    if: github.event.review.state == 'APPROVED'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: aws cli configure
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: "arn:aws:iam::650267257878:role/OIDC"
+          aws-region: "us-east-1"
+
+      - name: try cli
+        run: |
+          echo "this is deploy job\n"
+          aws s3 ls
