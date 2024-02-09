@@ -1,15 +1,15 @@
-name: "Test workflow"
+name: "AWS Deploy workflow"
 
 on:
-  pull_request_review:
-    types: [submitted]
+  pull_request:
+    types: [closed]
 
 permissions:
   id-token: write
 
 jobs:
   aws:
-    if: github.event.review.state == 'APPROVED'
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
